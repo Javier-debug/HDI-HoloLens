@@ -59,13 +59,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/MRTK/Scene/TestArea.unity
     guid: 4cfd5d3e89249d74badd417c549a6768
+  - enabled: 0
+    path: Assets/MRTK/Examples/Demos/SpatialAwareness/Scenes/SpatialAwarenessMeshDemo.unity
+    guid: 9db181581e617224e962601f062da844
   m_configObjects: {}
