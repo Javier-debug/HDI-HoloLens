@@ -65,4 +65,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/MRTK/Examples/Demos/SpatialAwareness/Scenes/SpatialAwarenessMeshDemo.unity
     guid: 9db181581e617224e962601f062da844
+  - enabled: 0
+    path: Assets/MRTK/Examples/Demos/Solvers/Scenes/SurfaceMagnetismSpatialAwarenessExample.unity
+    guid: 8feae87497f549c4e8dc08a6e4b7b15c
   m_configObjects: {}
