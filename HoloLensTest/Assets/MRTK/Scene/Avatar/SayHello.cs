@@ -9,12 +9,15 @@ public class SayHello : MonoBehaviour
     //Variables de posicion de daños 
     float danos_x = -0.75f, danos_y = 0.079f, danos_z = 0.205f;//Variables inicio
     float danos_xf = -0.857f, danos_zf = 0.266f;//Variables Finales
+
     //Variables de posicion de siniestros
     float siniestros_x = -0.202f, siniestros_y = 0.079f, siniestros_z = 0.753f;//Variables inicio
     float siniestros_xf = -0.314f, siniestros_zf = 0.947f;//Variables Finales
+
     //Variables de posicion de costos
     float costos_x = 0.45f, costos_y = 0.070f, costos_z = 0.646f;//Variables inicio
     float costos_xf = 0.62f, costos_zf = 0.816f;//Variables Finales
+
     //Variables de posicion de refacciones
     float refacciones_x = -0.646f, refacciones_y = 0.079f, refacciones_z = -0.45f;//Variables inicio
     float refacciones_xf = -0.788f, refacciones_zf = -0.592f;//Variables Finales
@@ -81,19 +84,19 @@ public class SayHello : MonoBehaviour
     void posicionDanos()
     {
         //Daños
-        Vector3 newPositionDanos = new Vector3(danos_x, danos_y, danos_z);
+        newPositionDanos = new Vector3(danos_x, danos_y, danos_z);
         danos.transform.localPosition = newPositionDanos;
 
         //Siniestros
-        Vector3 newPositionSiniestros = new Vector3(siniestros_xf, siniestros_y, siniestros_zf);
+        newPositionSiniestros = new Vector3(siniestros_xf, siniestros_y, siniestros_zf);
         siniestos.transform.localPosition = newPositionSiniestros;
 
         //Costos
-        Vector3 newPositionCostos = new Vector3(costos_xf, costos_y, costos_zf);
+        newPositionCostos = new Vector3(costos_xf, costos_y, costos_zf);
         costos.transform.localPosition = newPositionCostos;
 
         //Refacciones
-        Vector3 newPositionRefacciones = new Vector3(refacciones_xf, refacciones_y, refacciones_zf);
+        newPositionRefacciones = new Vector3(refacciones_xf, refacciones_y, refacciones_zf);
         refacciones.transform.localPosition = newPositionRefacciones;
     }
 
