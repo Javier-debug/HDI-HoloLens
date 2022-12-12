@@ -16,6 +16,8 @@ public class Introduction : MonoBehaviour
     // Total distance between the markers.
     private float journeyLength;
 
+    private bool animationSucceded = false;
+
     void Start()
     {
         // Keep a note of the time the movement started.
@@ -35,7 +37,14 @@ public class Introduction : MonoBehaviour
         // Fraction of journey completed equals current distance divided by total distance.
         float fractionOfJourney = distCovered / journeyLength;
 
-        // Set our position as a fraction of the distance between the markers.
-        transform.position = Vector3.Lerp(startMarker.position, endMarker.position, fractionOfJourney);
+        if (animationSucceded == false)
+        {
+            // Set our position as a fraction of the distance between the markers.
+            transform.position = Vector3.Lerp(startMarker.position, endMarker.position, fractionOfJourney);
+            if(transform.position == endMarker.position)
+            {
+                animationSucceded = true;
+            }
+        }
     }
 }
