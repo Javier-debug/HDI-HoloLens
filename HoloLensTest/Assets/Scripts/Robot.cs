@@ -32,11 +32,8 @@ public class Robot : MonoBehaviour
         //Print the time of when the function is first called.
         Debug.Log("Started Coroutine at timestamp : " + Time.time);
         
-        //spatialAwarenessSystem.ClearObservations();
-        //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(5);
-        //spatialAwarenessSystem.SuspendObservers();
-        //After we have waited 5 seconds print the time again.
+
         robot.SetActive(true);
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }

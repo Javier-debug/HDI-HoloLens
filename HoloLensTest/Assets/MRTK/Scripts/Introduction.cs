@@ -4,47 +4,58 @@ using UnityEngine;
 
 public class Introduction : MonoBehaviour
 {
-    Transform startMarker;
+    public Transform startMarker;
     public Transform endMarker;
+    public int robotRoot = -1;
 
     // Movement speed in units per second.
     public float speed = 1.0F;
-
-    // Time when the movement started.
-    private float startTime;
-
-    // Total distance between the markers.
-    private float journeyLength;
 
     private bool animationSucceded = false;
 
     void Start()
     {
         // Keep a note of the time the movement started.
-        startMarker = transform;
-        startTime = Time.time;
+    }
 
-        // Calculate the journey length.
-        journeyLength = Vector3.Distance(startMarker.position, endMarker.position);
+    IEnumerator timeToPass()
+    {
+        if(robotRoot == 0)
+        {
+            yield return new WaitForSeconds(9);
+            robotRoot = 1;
+            yield return new WaitForSeconds(2);
+            animationSucceded = false;
+            robotRoot = -1;
+            StopCoroutine(timeToPass());
+        }
+        else
+        {
+            StopCoroutine(timeToPass());
+        }
     }
 
     // Move to the target end position.
     void Update()
     {
-        // Distance moved equals elapsed time times speed..
-        float distCovered = (Time.time - startTime) * speed;
-
-        // Fraction of journey completed equals current distance divided by total distance.
-        float fractionOfJourney = distCovered / journeyLength;
-
-        if (animationSucceded == false)
+        if (robotRoot == 0 || robotRoot == -1)
         {
-            // Set our position as a fraction of the distance between the markers.
-            transform.position = Vector3.Lerp(startMarker.position, endMarker.position, fractionOfJourney);
-            if(transform.position == endMarker.position)
+            if (animationSucceded == false)
             {
-                animationSucceded = true;
+                float step = speed * Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, endMarker.position, step);
+
+                if (transform.position == endMarker.position)
+                {
+                    animationSucceded = true;
+                    StartCoroutine(timeToPass());
+                }
             }
+        }
+        else
+        {
+            float step = speed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(startMarker.position.x, 1f, startMarker.position.z), step);
         }
     }
 }
